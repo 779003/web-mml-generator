@@ -5,3 +5,6 @@
 - 노트 입력 UI를 통해 MML 코드 자동 생성
 - 웹에서 미리듣기 가능
 - MML 복사 및 붙여넣기 기능
+
+## 사용 사이트
+https://mobinogi.info/mml
