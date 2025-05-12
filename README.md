@@ -6,5 +6,9 @@
 - 웹에서 미리듣기 가능
 - MML 복사 및 붙여넣기 기능
 
+## 데모
+https://779003.github.io/web-mml-generator
+
 ## 사용 사이트
-https://mobinogi.info/mml
+
+- 모비노기정보 작곡 페이지 https://mobinogi.info/mml
