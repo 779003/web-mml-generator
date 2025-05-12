@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>MML 코드 생성기</title>
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/mml.css">
+  <style>
+    .char-count {
+      font-size: 0.9rem;
+      text-align: right;
+      color: #666;
+      margin-bottom: 1rem;
+    }
+    .char-count.warning {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="site-title">🎵 MML 코드 생성기</h1>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="section selected-tasks">
+      <h2>🎼 트랙 선택</h2>
+      <div class="track-selection">
+        <button class="track-btn" id="melodyBtn">멜로디</button>
+        <button class="track-btn" id="chord1Btn">화음1</button>
+        <button class="track-btn" id="chord2Btn">화음2</button>
+        <button class="track-btn" id="chord3Btn">화음3</button>
+        <button class="track-btn" id="chord4Btn">화음4</button>
+        <button class="track-btn" id="chord5Btn">화음5</button>
+      </div>
+    </div>
+
+    <div class="controls-group">
+      <div class="button-group">
+        <label class="button-group-title">음길이</label>
+        <select id="lengthSelect" onchange="setLength(parseInt(this.value))">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="4" selected>4</option>
+          <option value="8">8</option>
+          <option value="16">16</option>
+        </select>
+      </div>
+
+      <div class="button-group">
+        <button class="play-btn" onclick="playMML('both')">▶ 전체 재생</button>
+        <button class="stop-btn" onclick="stopMML()">■ 정지</button>
+        <button class="undo-btn">⎌ 실행취소</button>
+        <button class="redo-btn">⎌ 다시실행</button>
+        <button class="clear-btn" onclick="clearAll()">전체 초기화</button>
+        <button class="copy-all-btn" onclick="copyAllTracks()">전체 복사</button>
+        <button class="help-btn" onclick="showHelpModal()">도움말</button>
+      </div>
+    </div>
+
+    <div class="section all-tasks">
+      <h2>🎼 MML 입력</h2>
+      <textarea id="melodyOutput" rows="4" placeholder="멜로디 트랙"></textarea>
+      <div class="char-count" id="melodyCharCount"></div>
+      <textarea id="chord1Output" rows="2" placeholder="화음1"></textarea>
+      <div class="char-count" id="chord1CharCount"></div>
+      <textarea id="chord2Output" rows="2" placeholder="화음2"></textarea>
+      <div class="char-count" id="chord2CharCount"></div>
+      <textarea id="chord3Output" rows="2" placeholder="화음3"></textarea>
+      <div class="char-count" id="chord3CharCount"></div>
+      <textarea id="chord4Output" rows="2" placeholder="화음4"></textarea>
+      <div class="char-count" id="chord4CharCount"></div>
+      <textarea id="chord5Output" rows="2" placeholder="화음5"></textarea>
+      <div class="char-count" id="chord5CharCount"></div>
+      <div id="error" class="notification"></div>
+    </div>
+
+    <div class="piano-container">
+      <h2>🎹 피아노 키 입력</h2>
+      <div id="pianoKeysLow" class="piano-row"></div>
+      <div id="pianoKeysMid" class="piano-row"></div>
+      <div id="pianoKeysHigh" class="piano-row"></div>
+    </div>
+
+    <div class="canvas-container">
+      <canvas id="infoCanvas" height="50"></canvas>
+      <div id="previewCanvasContainer">
+        <canvas id="previewCanvas" height="300"></canvas>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    ⓒ 2025 MML Generator Project
+  </footer>
+
+  <div id="helpModal" class="modal">
+    <div class="modal-content">
+      <h2>도움말</h2>
+      <p>MML 코드를 입력하고, 각 버튼을 통해 재생 및 복사를 할 수 있습니다.</p>
+      <button class="help-btn" onclick="closeHelpModal()">닫기</button>
+    </div>
+  </div>
+
+  <script src="js/mml-constants.js"></script>
+  <script src="js/mml-utils.js"></script>
+  <script src="js/mml-core.js"></script>
+  <script src="js/mml-ui.js"></script>
+  <script src="js/mml-main.js"></script>
+</body>
+</html>
